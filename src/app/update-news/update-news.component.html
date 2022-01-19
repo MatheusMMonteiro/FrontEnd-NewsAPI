@@ -1,0 +1,31 @@
+<div class="container-fluid p-2 lightBg">
+    <div class="row d-flex justify-content-center">
+  
+      <div class="col-md-10 d-flex flex-column align-items-center">
+  
+        <h2 class="headerStyle p-4"><strong>Register a News</strong></h2>
+  
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input  [(ngModel)]="news.title"type="text" id="title" placeholder="Type the Title"
+          class="form-control mb-2">
+          <label for="content">Content</label>
+          <input  [(ngModel)]="news.content"type="text" id="content" placeholder="Type the Content"
+          class="form-control mb-2">
+          <label for="author">Author</label>
+          <input  [(ngModel)]="news.author"type="text" id="author" placeholder="Type the Author"
+          class="form-control mb-2">
+          <label for="tags">Tags</label>
+          <input  [(ngModel)]="news.tags"type="text" id="tags" placeholder="Type the tags"
+          class="form-control mb-2">
+
+      </div>
+      <div class="d-flex my-4 justify-content-evenly w-50"> 
+        <button class='btn btn-danger' routerLink='/create-news'>Cancel</button>
+        <button class='btn btn-success' (click)="update()">Save changes</button>
+      </div>
+              
+      </div>
+  
+    </div>
+</div>
