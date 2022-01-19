@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
 import { Comments } from '../model/Comments';
 import { News } from '../model/News';
 import { CommentsService } from '../service/comments.service';
@@ -21,12 +20,11 @@ export class CreateCommentComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    
-    this.idNews = this.route.snapshot.params['id']
-    
+  ngOnInit() {    
+    this.idNews = this.route.snapshot.params['id']    
     document.getElementById("buttonModal")?.click()
   }
+  
   registerComments(){
     this.news.id = this.idNews
     this.comments.news = this.news

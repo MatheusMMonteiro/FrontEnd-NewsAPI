@@ -1,10 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
-import { Comments } from '../model/Comments';
 import { News } from '../model/News';
-import { CommentsService } from '../service/comments.service';
 import { NewService } from '../service/new.service';
-
 
 @Component({
   selector: 'app-list-news',

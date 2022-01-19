@@ -12,6 +12,7 @@ export class DeleteNewsComponent implements OnInit {
 
   news: News = new News()
   idNews: number
+  
   constructor(
     private newsService: NewService,
     private router: Router,
@@ -19,7 +20,6 @@ export class DeleteNewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.idNews = this.route.snapshot.params['id']
     this.getByIdNews(this.idNews)
 

@@ -12,11 +12,6 @@ export class CreateNewsComponent implements OnInit {
 
   news: News = new News()
   listNews: News[]
-  title: string
-  content: string
-  author: string
-  tags: string
-  date: Date
 
   constructor(
     private newsService: NewService,

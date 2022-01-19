@@ -22,10 +22,6 @@ export class NewService {
     return this.http.get<News[]>(`http://localhost:8080/news/title/${title}`);
   }
   
-  getByTags(tags: string): Observable<News[]>{
-    return this.http.get<News[]>(`http://localhost:8080/news/tags/${tags}`);
-  }
-
   postNews(news: News): Observable<News>{
     return this.http.post<News>("http://localhost:8080/news/register", news);
   }
