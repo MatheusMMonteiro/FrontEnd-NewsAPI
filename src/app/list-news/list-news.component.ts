@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 import { Comments } from '../model/Comments';
 import { News } from '../model/News';
 import { CommentsService } from '../service/comments.service';
@@ -14,13 +15,13 @@ export class ListNewsComponent implements OnInit {
 
   news: News = new News()
   listNews: News[]
-  listComments: Comments[]
-  idNews: number 
   titlePost: string
+  key = 'data'
+  reverse = true
 
   constructor(
-    private newsService: NewService,
-    private commentsService: CommentsService
+    private newsService: NewService
+    
   ) { }
 
   ngOnInit() {
@@ -32,16 +33,10 @@ export class ListNewsComponent implements OnInit {
       this.listNews = resp
     })
   }
-  getId(id: number){  
-    this.idNews = id
+  getId(id: number){ 
+    environment.id = id
   }
 
-  getByIdComments(id: number){
-    this.commentsService.getByIdNews(id).subscribe((resp: Comments[]) =>{
-      console.log(resp)
-      this.listComments = resp
-    })
-  }
   findByTitleNews(){
     if(this.titlePost == ''){
       this.getAllNews()

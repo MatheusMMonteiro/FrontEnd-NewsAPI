@@ -8,27 +8,25 @@
         </div>
     </div>
 </div>
-<div *ngFor="let item of listNews" class="d-flex justify-content-center  "> 
+<div *ngFor="let item of listNews | orderBy : key : reverse" class="d-flex justify-content-center  "> 
     <article class="card m-4" style="width: 18rem;">
         <div class="card-body d-flex flex-column">
         <div class="d-flex justify-content-between">
             <h6 class="card-subtitle mb-3 text-muted">{{item.author}}</h6>            
         </div>        
           <h3 class="card-title text-center">{{item.title}}</h3>          
-          <p class="card-text px-3">{{item.content}}</p>          
+          <p class="card-text px-3">{{item.content}}</p>                 
             <p>{{item.tags}}</p>
             <p class="text-end">{{item.date | date: "dd/MM/yyyy"}}</p>   
             <div>{{getId(item.id)}}</div>
-            <div>
-                <button class="btn text-primary" (click)="getByIdComments(item.id)" >View Comments </button>
-                <div  *ngFor="let comm of listComments">
-                   <div class="border border-danger">
-                       <p>{{comm.content}}</p>
-                   </div> 
-                </div>              
-            </div> 
+            
+                          
+            <app-comments></app-comments>
+            <section class="d-flex justify-content-center">
+                <button [routerLink]="['/create-comment',item.id]" class="btn btn-success mt-4">Create Comment</button>
+            </section>
+            
         </div>        
     </article>
-    aaaa  
 
 </div>

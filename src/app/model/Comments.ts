@@ -5,5 +5,5 @@ export class Comments{
     public content: string;
     public author: string;
     public date: Date;
-    public news: News[];
+    public news: News;
 }

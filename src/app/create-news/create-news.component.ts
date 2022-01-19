@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { News } from '../model/News';
 import { NewService } from '../service/new.service';
@@ -12,7 +12,6 @@ export class CreateNewsComponent implements OnInit {
 
   news: News = new News()
   listNews: News[]
-
   title: string
   content: string
   author: string
@@ -30,8 +29,7 @@ export class CreateNewsComponent implements OnInit {
   }
 
   getAllNews(){
-    this.newsService.getAllNews().subscribe((resp: News[]) =>{
-      console.log(resp)
+    this.newsService.getAllNews().subscribe((resp: News[]) =>{ 
       this.listNews = resp
     })
   }
@@ -41,11 +39,8 @@ export class CreateNewsComponent implements OnInit {
       alert("News create successfuly")
       this.news = new News()
       this.getAllNews()
-      this.router.navigate(['/#'])
-            
+      this.router.navigate(['/create-news'])          
       
-    })
-    
+    })    
   }
-
 }

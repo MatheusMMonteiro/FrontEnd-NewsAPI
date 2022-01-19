@@ -10,8 +10,8 @@
           <input  [(ngModel)]="news.title"type="text" id="title" placeholder="Type the Title"
           class="form-control mb-2">
           <label for="content">Content</label>
-          <input  [(ngModel)]="news.content"type="text" id="content" placeholder="Type the Content"
-          class="form-control mb-2">
+          <textarea  [(ngModel)]="news.content"type="text" id="content" placeholder="Type the Content"
+          class="form-control mb-2" rows="3" cols="33"></textarea>
           <label for="author">Author</label>
           <input  [(ngModel)]="news.author"type="text" id="author" placeholder="Type the Author"
           class="form-control mb-2">
@@ -22,7 +22,6 @@
       </div>
         <button class="btn btn-success mt-4" (click)="register()">Save changes</button>
       </div>
-  
     </div>
 </div>
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { DeleteNewsComponent } from './delete-news/delete-news.component';
 import { ListNewsComponent } from './list-news/list-news.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'list-news', component: ListNewsComponent},
   {path: 'create-news', component: CreateNewsComponent},
   {path: 'update-news/:id', component: UpdateNewsComponent},
-  {path: 'delete-news/:id', component: DeleteNewsComponent}
+  {path: 'delete-news/:id', component: DeleteNewsComponent},
+  {path: 'create-comment/:id', component: CreateCommentComponent}
 ];
 
 @NgModule({

@@ -10,6 +10,9 @@ import { CreateNewsComponent } from './create-news/create-news.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateNewsComponent } from './update-news/update-news.component';
 import { DeleteNewsComponent } from './delete-news/delete-news.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -19,13 +22,16 @@ import { DeleteNewsComponent } from './delete-news/delete-news.component';
     ListNewsComponent,
     CreateNewsComponent,
     UpdateNewsComponent,
-    DeleteNewsComponent
+    DeleteNewsComponent,
+    CommentsComponent,
+    CreateCommentComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
