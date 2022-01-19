@@ -1,0 +1,15 @@
+<details class="mb-3">
+    <summary>View Comments</summary>
+    <div  *ngFor="let item of listComments">        
+        <div class="border border-danger px-2 mb-1 rounded-start">
+            <p class="fw-bolder m-0 text-primary">{{item.author}}</p>
+            <p class="m-0 font-monospace">{{item.content}}</p>
+            <p class="text-end text-muted">{{item.date | date: "dd/MM/yyyy"}}</p>
+              {{item.news.id}}
+        </div>  
+        <h1 *ngIf="listComments.length === listComments.length -2">teste</h1>       
+    </div>
+
+</details>
+
+
