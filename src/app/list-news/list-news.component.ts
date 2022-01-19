@@ -1,9 +1,11 @@
+import { splitAtColon } from '@angular/compiler/src/util';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Comments } from '../model/Comments';
 import { News } from '../model/News';
 import { CommentsService } from '../service/comments.service';
 import { NewService } from '../service/new.service';
+
 
 @Component({
   selector: 'app-list-news',
@@ -15,7 +17,8 @@ export class ListNewsComponent implements OnInit {
   news: News = new News()
   listNews: News[]
   listComments: Comments[]
-  @Input() private idNews: number
+  idNews: number
+  titlePost: string
 
   constructor(
     private router: Router,
@@ -26,18 +29,18 @@ export class ListNewsComponent implements OnInit {
   ngOnInit() {
 
     this.getAllNews()
+    
+    console.log(this.idNews)
   }
 
   getAllNews(){
-    this.newsService.getAllNews().subscribe((resp: News[]) =>{
-      console.log(resp)
+    this.newsService.getAllNews().subscribe((resp: News[]) =>{     
       this.listNews = resp
     })
   }
-  getId(id: number){
+  getId(id: number){    
+    console.log(id)
     this.idNews = id
-    // this.getByIdComents(this.idNews)
-    
   }
 
   getByIdComments(id: number){
@@ -45,6 +48,16 @@ export class ListNewsComponent implements OnInit {
       console.log(resp)
       this.listComments = resp
     })
-    return
+  }
+  findByTitleNews(){
+    if(this.titlePost == ''){
+      this.getAllNews()
+    }
+    else{
+      this.newsService.getByTitle(this.titlePost).subscribe((resp: News[]) =>{
+        this.listNews = resp
+      })
+    }
+    
   }
 }
