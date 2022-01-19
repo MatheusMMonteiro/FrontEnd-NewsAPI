@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center visually-hidden" data-bs-toggle="modal" data-bs-target="#modalComments">
+    <button id="buttonModal" class="btn btn-success">Create Comment</button>
+</div>
+
+<div class="modal fade" tabindex="-1" id="modalComments" tabindex="-1" aria-labelledby="modalCommentsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center">
+          <h5 class="modal-title ">Create Comment</h5>        
+          
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input  [(ngModel)]="comments.author"type="text" id="author" placeholder="Type the Author"
+                class="form-control mb-2">
+                <label for="content">Content</label>
+                <textarea  [(ngModel)]="comments.content"type="text" id="author" placeholder="Type the Content"
+                class="form-control mb-2" rows="3" cols="33"></textarea>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" [routerLink]="['/list-news']">Close</button>
+          <button type="button"  class="btn btn-primary" data-bs-dismiss="modal" (click)="registerComments()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
