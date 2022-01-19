@@ -1,6 +1,4 @@
-import { splitAtColon } from '@angular/compiler/src/util';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Comments } from '../model/Comments';
 import { News } from '../model/News';
 import { CommentsService } from '../service/comments.service';
@@ -17,20 +15,16 @@ export class ListNewsComponent implements OnInit {
   news: News = new News()
   listNews: News[]
   listComments: Comments[]
-  idNews: number
+  idNews: number 
   titlePost: string
 
   constructor(
-    private router: Router,
     private newsService: NewService,
     private commentsService: CommentsService
   ) { }
 
   ngOnInit() {
-
-    this.getAllNews()
-    
-    console.log(this.idNews)
+    this.getAllNews() 
   }
 
   getAllNews(){
@@ -38,8 +32,7 @@ export class ListNewsComponent implements OnInit {
       this.listNews = resp
     })
   }
-  getId(id: number){    
-    console.log(id)
+  getId(id: number){  
     this.idNews = id
   }
 
@@ -57,7 +50,6 @@ export class ListNewsComponent implements OnInit {
       this.newsService.getByTitle(this.titlePost).subscribe((resp: News[]) =>{
         this.listNews = resp
       })
-    }
-    
+    }    
   }
 }
